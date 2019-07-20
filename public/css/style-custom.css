@@ -4,6 +4,12 @@
     background-color: inherit!important;
 }
 
+.nav .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus{
+    background-color: inherit!important;
+}
+
 #menu{
     background: #96B7D6!important;
 }
