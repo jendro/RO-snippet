@@ -2,6 +2,7 @@
 
 Route::get('auth/github', 'Auth\GithubController@redirectToProvider')->name('auth.github');
 Route::get('auth/github/callback', 'Auth\GithubController@handleProviderCallback')->name('auth.github.callback');
+Route::get('logout', 'Auth\GithubController@logout')->name('logout');
 
 Route::get('/', 'Snippet\SnippetController@index')->name('home');
 Route::get('/about', 'AboutController')->name('about');
