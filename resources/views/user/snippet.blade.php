@@ -20,24 +20,7 @@
                 </a>
             </div>
         </div>
-        <style>
-        .snippet-action{
-            position: absolute;
-            top:15px;
-            right:15px;
-        }
-        .btn-small{
-            font-size:0.8em;
-            padding:3px 6px;
-        }
-        .btn-round{
-            border-radius:50%;
-        }
-        .btn-round *{
-            color:white;
-        }
-        </style>
-        <div class="row snippet-short-description">
+        <div class="row snippet-description">
             <p>Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth</p>
             <span class="snippet-timeago">4 mount ago, in :</span>
             <span class="snippet-tag tag-laravel">

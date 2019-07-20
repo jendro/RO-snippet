@@ -1,7 +1,7 @@
 <div class="col-md-4 snippet">
     <div class="snippet-content">
         <div class="row snippet-header">
-            <div class="snippet-image"> 
+            <div class="round-image"> 
                 <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
             </div>
             <div>
@@ -17,7 +17,7 @@
             </h3>
             </div>
         </div>
-        <div class="row snippet-short-description">
+        <div class="row snippet-description">
             <p>Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth</p>
             <span class="snippet-timeago">4 mount ago, in :</span>
             <span class="snippet-tag tag-laravel">

@@ -14,7 +14,7 @@
             </h3>
             </div>
         </div>
-        <div class="row snippet-short-description">
+        <div class="row snippet-description">
             <p>Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth</p>
             <span class="snippet-timeago">4 mount ago, in :</span>
             <span class="snippet-tag tag-laravel">

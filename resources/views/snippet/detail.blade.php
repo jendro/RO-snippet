@@ -12,30 +12,31 @@
         <div class="col-md-8 snippet">
           <div class="snippet-content">
               <div class="row snippet-header">
-                  <div class="snippet-image"> 
+                  <div class="round-image"> 
                     <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
                   </div>
                   <div>
-                  <p class="snippet-user">
-                      <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
-                      Nama User
-                      </a>
-                  </p>
-                  <h3 class="snippet-title" style="margin-bottom:3px">
-                      Replace Default View Login in Laravel
-                  </h3>
-                  <span class="snippet-timeago">4 mount ago, in :</span>
-                  <span class="snippet-tag tag-laravel">
-                      <a class="framework-icon" title="laravel" href="{{ route('snippet.framework',['framewkro'=>'framework']) }}">
-                          <img src="{{ asset('images/frameworks/laravel.png') }}" alt="">
-                          Laravel
-                      </a>
-                  </span>
-                  <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">View</a></span>
-                  <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">Controller</a></span>
+                    <p class="snippet-user">
+                        <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
+                        Nama User
+                        </a>
+                    </p>
+                    <h3 class="snippet-title">
+                        Replace Default View Login in Laravel
+                    </h3>
+                    <span class="snippet-timeago">4 mount ago, in :</span>
+                    <span class="snippet-tag tag-laravel">
+                        <a class="framework-icon" title="laravel" href="{{ route('snippet.framework',['framewkro'=>'framework']) }}">
+                            <img src="{{ asset('images/frameworks/laravel.png') }}" alt="">
+                            Laravel
+                        </a>
+                    </span>
+                    <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">View</a></span>
+                    <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">Controller</a></span>
                   </div>
               </div>
-              <div class="row snippet-statistic" style="padding:0 10px 10px;border-bottom:1px solid #eee">
+
+              <div class="row snippet-statistic detail">
                   <i class="fa fa-caret-up"></i> 10
                   <i class="fa fa-caret-down"></i> 10
                   <div class="pull-right">
@@ -47,11 +48,13 @@
                   </a>
                   </div>
               </div>
-              <div class="row snippet-short-description">
+
+              <div class="row snippet-description">
                 <h4>Description</h4>
-                <p style="height:auto">Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth</p>
+                <p class="detail">Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth</p>
               </div>
-              <div class="row snippet-short-description">
+
+              <div class="row snippet-description">
                 <div class="pull-right action-snippet">
                   <a href="#">
                     <i class="fa fa-copy"></i>
@@ -69,10 +72,10 @@ protected function validator(array $data)
 </code></pre>
                 
               </div>
-              <div class="row snippet-short-description">
+              <div class="row snippet-description">
                 <h4>Komentar</h4>
                 <div class="komentar clearfix">
-                  <div class="snippet-image"> 
+                  <div> 
                     <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
                   </div>
                   <div class="detail-komentar">
@@ -80,7 +83,7 @@ protected function validator(array $data)
                   </div>
                 </div>
                 <div class="komentar clearfix odd">
-                  <div class="snippet-image"> 
+                  <div> 
                     <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
                   </div>
                   <div class="detail-komentar">
@@ -90,11 +93,11 @@ protected function validator(array $data)
                 <hr class="hr-komentar">
                 <div class="komentar clearfix form">
                   <div class="col-md-1"> 
-                    <img  style="border-radius:100%" src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
+                    <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
                   </div>
                   <div class="col-md-11">
                     <textarea name="" id="" class="form-control" placeholder="tulis komentar ... "></textarea>
-                    <input type="submit" value="komentar" class="btn btn-success" style="float:right;margin-top:10px">
+                    <input type="submit" value="komentar" class="btn btn-success">
                   </div>
                 </div>
                 <div class="clearfix">
@@ -108,10 +111,10 @@ protected function validator(array $data)
         </div>
 
         <div class="col-md-4 snippet">
-          <div class="snippet-content" style="padding-bottom:20px">
-              <h4 style="margin-bottom:10px;border-bottom:1px solid #eee;padding-bottom:10px;">Other Trick</h4>
-              <div class="list-trick">
-                <div class="snippet-image"> 
+          <div class="snippet-content pb20">
+              <h4 class="other-trick-title">Other Trick</h4>
+              <div class="list-other-trick">
+                <div class="round-image"> 
                     <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
                 </div>
                 <div>
@@ -127,8 +130,8 @@ protected function validator(array $data)
                   </h3>
                 </div>
               </div>          
-              <div class="list-trick">
-                <div class="snippet-image"> 
+              <div class="list-other-trick">
+                <div class="round-image"> 
                     <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
                 </div>
                 <div>
@@ -144,8 +147,8 @@ protected function validator(array $data)
                   </h3>
                 </div>
               </div> 
-              <div class="list-trick">
-                <div class="snippet-image"> 
+              <div class="list-other-trick">
+                <div class="round-image"> 
                     <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
                 </div>
                 <div>
@@ -161,8 +164,8 @@ protected function validator(array $data)
                   </h3>
                 </div>
               </div> 
-              <div class="list-trick">
-                <div class="snippet-image"> 
+              <div class="list-other-trick">
+                <div class="round-image"> 
                     <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
                 </div>
                 <div>
@@ -187,68 +190,9 @@ protected function validator(array $data)
 
   </div>
 </div>
-<style>
-.list-trick:first-child{
-  margin-top:30px;
-}
-.list-trick{
-  border-bottom:1px solid #eee;
-  padding-bottom:20px;
-  margin-bottom:20px;
-}
-.komentar{
-  padding:15px;
-  background: #efefef;
-  border-radius:15px;
-  clear: both;
-  margin-bottom:10px;
-}
-.komentar.odd{
-  background: #fafafa;
-}
-.komentar .snippet-image{
-  width:50px;
-  height:50px;
-}
-.komentar img{
-  width:50px;
-  height:50px;
-}
-.detail-komentar{
-  margin-top:5px;
-  color:#555;
-}
-.komentar.form{
-  background: #DCE9F5;
-  margin-top:10px;
-}
-.komentar.form textarea{
-  font-size:0.9em;
-  height:80px;
-}
-.hr-komentar{
-  width:100%;
-  height: 1px;
-  background: #ccc;
-  margin:0;
-}
-p.login-warning{
-  font-style: italic;
-  font-size:0.9em!important;
-}
-.action-snippet{
-  padding:5px;
-  float:right;
-  font-size:1.3em;
-}
-.action-star .fa-star{
-  color:yellow!important;
-}
-.action-star:hover .fa-star-o{
-  color:yellow;
-}
-</style>
+
 <script>
-hljs.initHighlightingOnLoad();
+  hljs.initHighlightingOnLoad();
 </script>
+
 @endsection

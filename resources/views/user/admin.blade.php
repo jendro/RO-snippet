@@ -47,44 +47,4 @@
 </div>
 
 
-<style>
-.user-container{
-  padding:10px;
-  background: white;
-}
-.user-github{
-  font-size:1em;
-  pos
-}
-.user-container .user-image{
-  margin: 0 auto;
-}
-.user-container .title{
-  margin:0;
-  padding:7px 0 5px;
-}
-.user-statistik{
-  font-size:0.95em;
-}
-.user-statistik i:not(:first-child){
-  margin-left:7px;
-}
-.user-github{
-  background: #444;
-  padding:3px 10px;
-  font-size:0.8em;
-  color:white;
-  border-radius:20px;
-}
-.user-github:hover{
-  color:white;
-  opacity: 0.8;
-  text-decoration:none;
-}
-.edit-user-button{
-  font-size:0.7em;
-  margin-left:5px;
-  color:#333;
-}
-</style>
 @endsection
