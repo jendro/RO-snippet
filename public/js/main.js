@@ -44,3 +44,19 @@ function main() {
 
 }
 main();
+
+function hapus(url){
+    Swal.fire({
+    	title: 'Yakin Menghapus ?',
+    	text: "data yang dihapus tidak dapat dikembalikan",
+    	type: 'warning',
+    	showCancelButton: true,
+    	confirmButtonColor: '#3085d6',
+    	cancelButtonColor: '#d33',
+    	confirmButtonText: 'Ya, Hapus!'
+    }).then((result) => {
+    	if (result.value) {
+    		window.location.href = url;
+    	}
+    })
+}

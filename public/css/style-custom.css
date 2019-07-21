@@ -373,3 +373,12 @@ p.login-warning {
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
 }
+
+.swal2-popup {
+    font-size: 1.2em !important;
+}
+
+.swal2-modal {
+    font-size: 2em;
+    padding: 20px !important;
+}

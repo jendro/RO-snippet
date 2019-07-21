@@ -12,6 +12,13 @@ use App\Model\Snippet;
 class SnippetController extends Controller
 {
 
+    private $contributor;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function add(Request $request)
     {
         return view('user.snippet.form',[
@@ -34,18 +41,32 @@ class SnippetController extends Controller
 
     public function edit(Snippet $snippet)
     {
-        return view('user.snippet.form-edit',[
-            'snippet'=>$snippet,
-            'framework_r'=>Framework::orderBy('framework')->get()
-        ]);
+        if(!Auth::user()->authorization($snippet->contributor)){
+            return redirect()->route('home');
+        }else{
+            return view('user.snippet.form-edit',[
+                'snippet'=>$snippet,
+                'framework_r'=>Framework::orderBy('framework')->get()
+            ]);
+        }
     }
 
     public function update(Request $request, Snippet $snippet)
     {
-        if(Auth::user()->authorization($snippet->contributor)){
+        if(!Auth::user()->authorization($snippet->contributor)){
+            return redirect()->route('home');
+        }else{
             $snippet->update($request->only('framework_id','title','description','code'));
             return redirect()->back();
+        }
+    }
+
+    public function delete(Snippet $snippet)
+    {
+        if(!Auth::user()->authorization($snippet->contributor)){
+            return redirect()->route('home');
         }else{
+            $snippet->delete();
             return redirect()->back();
         }
     }

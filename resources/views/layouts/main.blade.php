@@ -21,8 +21,12 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+      
       <script type="text/javascript" src="{{ asset('js/jquery.1.11.1.js') }}"></script>
       <script type="text/javascript" src="{{ asset('js/highlight.pack.js') }}"></script>
+      
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+      
   </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
       

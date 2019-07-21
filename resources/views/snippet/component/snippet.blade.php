@@ -11,7 +11,7 @@
                 </a>
             </p>
             <h3 class="snippet-title">
-                <a href="{{ route('snippet.detail',['snippet'=>'id']) }}">
+                <a href="{{ route('snippet.detail',['user'=>'user','snippet'=>'id']) }}">
                     Replace Default View Login in Laravel
                 </a>
             </h3>

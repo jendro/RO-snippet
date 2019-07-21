@@ -15,7 +15,7 @@
                 </a>
             </h3>
             <div class="snippet-action">
-                <a href="" class="btn btn-round btn-small btn-danger">
+                <a href="#" onclick="hapus('{{ route('snippet.delete',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
                     <i class="fa fa-trash"></i>
                 </a>
                 <a href="{{ route('snippet.edit',['snippet'=>$snippet->id]) }}" class="btn btn-round btn-small btn-success">
