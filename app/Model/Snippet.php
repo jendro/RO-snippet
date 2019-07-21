@@ -54,7 +54,7 @@ class Snippet extends Model
         return $this->hasMany('App\Model\SnippetKomentar','snippet_id');
     }
 
-    public function star()
+    public function stars()
     {
         return $this->hasMany('App\Model\SnippetStar','snippet_id');
     }

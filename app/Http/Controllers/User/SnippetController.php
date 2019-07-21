@@ -66,6 +66,16 @@ class SnippetController extends Controller
         if(!Auth::user()->authorization($snippet->contributor)){
             return redirect()->route('home');
         }else{
+
+            //TODO :: mungkin dipindah dimanaa gitu biar rapi, entahlah belum ada ide, apa event atau apa??
+            //delete star
+            foreach($snippet->stars as $star){
+                $star->delete();
+            }
+            //delete komentar
+            foreach($snippet->komentar as $komentar){
+                $komentar->delete();
+            }
             $snippet->delete();
             return redirect()->back();
         }
