@@ -24,34 +24,42 @@
                     <h3 class="snippet-title">
                         Replace Default View Login in Laravel
                     </h3>
-                    <span class="snippet-timeago">4 mount ago, in :</span>
-                    <span class="snippet-tag tag-laravel">
-                        <a class="framework-icon" title="laravel" href="{{ route('snippet.framework',['framewkro'=>'framework']) }}">
-                            <img src="{{ asset('images/frameworks/laravel.png') }}" alt="">
-                            Laravel
+                    <span class="snippet-timeago">{{ $snippet->created_at->diffForHumans() }}, in :</span>
+                    <span class="snippet-tag {{ $snippet->framework->class }}">
+                        <a class="framework-icon" title="laravel" href="{{ route('snippet.framework',['framewkro'=>$snippet->framework->framework]) }}">
+                            <img src="{{ asset('images/frameworks/'.$snippet->framework->icon) }}" alt="">
+                            {{ $snippet->framework->framework }}
                         </a>
                     </span>
-                    <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">View</a></span>
-                    <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">Controller</a></span>
+
+                    {{-- TODO : TAG --}}
+                    {{-- <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">View</a></span> --}}
+
                   </div>
               </div>
 
               <div class="row snippet-statistic detail">
-                  <i class="fa fa-caret-up"></i> 10
-                  <i class="fa fa-caret-down"></i> 10
+                  <i class="fa fa-caret-up"></i> {{ $snippet->up }}
+                  <i class="fa fa-caret-down"></i> {{ $snippet->down }}
+                  
                   <div class="pull-right">
-                  <i class="fa fa-eye"></i> 10
-                  <i class="fa fa-copy"></i> 10
-                  <a href="#" class="action-star">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star"></i> 10
-                  </a>
+                    <i class="fa fa-eye"></i> {{ $snippet->view }}
+                    <i class="fa fa-copy"></i> {{ $snippet->copied }}
+                    @if(Auth::user()->id != $snippet->contributor_id)
+                      <a href="#" class="action-star">
+                        <i class="fa fa-star-o"></i>
+                      </a>
+                    @else
+                      <i class="fa fa-star" style="color:yellow"></i> 
+                    @endif
+                    {{ $snippet->star }}
                   </div>
+
               </div>
 
               <div class="row snippet-description">
                 <h4>Description</h4>
-                <p class="detail">Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth Cara mengganti tampilan default login dari php artisan make:auth</p>
+                <p class="detail">{{ $snippet->description }}</p>
               </div>
 
               <div class="row snippet-description">
@@ -61,50 +69,44 @@
                   </a>
                 </div>
                 <h4>Code </h4>
-<pre><code class="php">use Illuminate\Support\Facades\Validator;
-protected function validator(array $data)
-{
-  return Validator::make($data, [
-    'username' => ['required', 'string', 'max:255'],
-    'email' => ['required', 'string', 'email', 'max:255']
-  ]);
-}
-</code></pre>
-                
+<pre><code class="{{ $snippet->framework->syntax }}">{{ $snippet->code }}</code></pre>  
               </div>
+
               <div class="row snippet-description">
                 <h4>Komentar</h4>
-                <div class="komentar clearfix">
-                  <div> 
-                    <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
+                
+                @php($no = 0)
+                @foreach($snippet->komentar as $komentar)
+                  <div class="komentar clearfix {{ ($no++%2==1)?'odd':'' }}">
+                    <div> 
+                      <img src="{{ $komentar->contributor->avatar }}" alt=""> 
+                    </div>
+                    <div class="detail-komentar">
+                      {{ $komentar->komentar }}
+                    </div>
                   </div>
-                  <div class="detail-komentar">
-                    ini adalah komentar saya
-                  </div>
-                </div>
-                <div class="komentar clearfix odd">
-                  <div> 
-                    <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
-                  </div>
-                  <div class="detail-komentar">
-                    ini adalah komentar saya
-                  </div>
-                </div>
+                @endforeach
+                
                 <hr class="hr-komentar">
-                <div class="komentar clearfix form">
-                  <div class="col-md-1"> 
-                    <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
+                
+                @if(Auth::user())
+                  <div class="komentar clearfix form">
+                    <div class="col-md-1"> 
+                      <img src="{{ Auth::user()->avatar }}" alt=""> 
+                    </div>
+                    <div class="col-md-11">
+                      <textarea name="" id="" class="form-control" placeholder="tulis komentar ... "></textarea>
+                      <input type="submit" value="komentar" class="btn btn-success">
+                    </div>
                   </div>
-                  <div class="col-md-11">
-                    <textarea name="" id="" class="form-control" placeholder="tulis komentar ... "></textarea>
-                    <input type="submit" value="komentar" class="btn btn-success">
+                @else
+                  <div class="clearfix">
+                    <div class="com-md-12"> 
+                      <p class="login-warning">*Login untuk komentar</p> 
+                    </div>
                   </div>
-                </div>
-                <div class="clearfix">
-                  <div class="com-md-12"> 
-                    <p class="login-warning">*Login untuk komentar</p> 
-                  </div>
-                </div>
+                @endif
+
               </div>
               
           </div>
@@ -112,7 +114,7 @@ protected function validator(array $data)
 
         <div class="col-md-4 snippet">
           <div class="snippet-content pb20">
-              <h4 class="other-trick-title">Other Trick</h4>
+              <h4 class="other-trick-title">Other Snippet & Trick</h4>
               <div class="list-other-trick">
                 <div class="round-image"> 
                     <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 

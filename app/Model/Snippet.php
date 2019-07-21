@@ -34,6 +34,21 @@ class Snippet extends Model
         return $this->belongsTo('App\Model\Framework','framework_id');
     }
 
+    public function komentar()
+    {
+        return $this->hasMany('App\Model\SnippetKomentar','snippet_id');
+    }
+
+    public function star()
+    {
+        return $this->hasMany('App\Model\SnippetStar','snippet_id');
+    }
+
+    public function tag()
+    {
+        return $this->hasMany('App\Model\SnippetTag','snippet_id');
+    }
+
     /** End Relation */
 
 
