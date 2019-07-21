@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         return view('snippet.user',[
             'contributor'=>$contributor,
-            'snippet_r'=>$contributor->snippet()->get()
+            'snippet_r'=>$contributor->snippet()->paginate()
         ]);
     }
 }

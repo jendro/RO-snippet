@@ -14,6 +14,10 @@
         @endforeach
       </div>
 
+      <div class="text-center">
+        {{ $snippet_r->links() }}
+      </div>
+
     </div>
 
   </div>

@@ -14,7 +14,7 @@ class FrameworkController extends Controller
     {
         return view('snippet.framework',[
             'framework'=>$framework->framework,
-            'snippet_r'=>$framework->snippet()->get()
+            'snippet_r'=>$framework->snippet()->paginate()
         ]);
     }
     

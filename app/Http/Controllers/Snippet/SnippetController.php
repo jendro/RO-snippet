@@ -21,7 +21,7 @@ class SnippetController extends Controller
     public function index()
     {
         return view('snippet.home',[
-            'snippet_r'=>Snippet::all()
+            'snippet_r'=>Snippet::paginate()
         ]);
     }
     
