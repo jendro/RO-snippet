@@ -11,13 +11,16 @@
         <div class="col-md-8" style="background:white;padding:20px">
           <h4 class="form-title">Tambah Snippet</h4>
 
-          <form class="form-horizontal" action="/action_page.php">
-            
+          <form method="POST" class="form-horizontal" action="{{ route('snippet.create') }}">
+            @csrf
             <div class="form-group">
-              <label class="control-label col-sm-2" for="framework">Framework:</label>
+              <label class="control-label col-sm-2" for="framework_id">Framework:</label>
               <div class="col-sm-9">
-                <select name="framework" id="framework" class="form-control">
+                <select required name="framework_id" id="framework_id" class="form-control">
                   <option value="">- Silahkan Pilih Framework -</option>
+                  @foreach($framework_r as $framework)
+                    <option @if(old('framework_id')==$framework->id) selected @endif value="{{ $framework->id }}">{{ $framework->framework }}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
@@ -25,21 +28,21 @@
             <div class="form-group">
               <label class="control-label col-sm-2" for="title">Title:</label>
               <div class="col-sm-9"> 
-                <input type="text" class="form-control" id="title" name="title">
+                <input autocomplete="off" required type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
               </div>
             </div>
             
             <div class="form-group">
               <label class="control-label col-sm-2" for="description">Description:</label>
               <div class="col-sm-9"> 
-                <textarea name="description" id="description" rows="5" class="form-control"></textarea>
+                <textarea required name="description" id="description" rows="5" class="form-control">{{ old('description') }}</textarea>
               </div>
             </div>
             
             <div class="form-group">
               <label class="control-label col-sm-2" for="code">Code:</label>
               <div class="col-sm-9"> 
-                <textarea name="code" id="code" rows="5" class="form-control"></textarea>
+                <textarea required name="code" id="code" rows="5" class="form-control">{{ old('code') }}</textarea>
               </div>
             </div>
 

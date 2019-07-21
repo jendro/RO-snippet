@@ -36,8 +36,7 @@
     
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script> 
     <script type="text/javascript" src="{{ asset('js/nivo-lightbox.js') }}"></script> 
-    <script type="text/javascript" src="{{ asset('js/jqBootstrapValidation.js') }}"></script> 
-    <script type="text/javascript" src="{{ asset('js/contact_me.js') }}"></script> 
+    <script type="text/javascript" src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
   </body>
 </html>

@@ -13,12 +13,12 @@
           <div class="snippet-content">
               <div class="row snippet-header">
                   <div class="round-image"> 
-                    <img src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
+                    <img src="{{ $snippet->contributor->avatar }}" alt=""> 
                   </div>
                   <div>
                     <p class="snippet-user">
-                        <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
-                        Nama User
+                        <a href="{{ route('snippet.user',['user'=>$snippet->contributor->id]) }}">
+                        {{ $snippet->contributor->name }}
                         </a>
                     </p>
                     <h3 class="snippet-title">
@@ -124,63 +124,12 @@ protected function validator(array $data)
                       </a>
                   </p>
                   <h3 class="snippet-title">
-                      <a href="{{ route('snippet.detail',['snippet'=>'id']) }}">
+                      <a href="{{ route('snippet.detail',['contributor'=>1,'snippet'=>'id']) }}">
                           Replace Default View Login in Laravel
                       </a>
                   </h3>
                 </div>
-              </div>          
-              <div class="list-other-trick">
-                <div class="round-image"> 
-                    <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
-                </div>
-                <div>
-                  <p class="snippet-user">
-                      <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
-                      Nama User
-                      </a>
-                  </p>
-                  <h3 class="snippet-title">
-                      <a href="{{ route('snippet.detail',['snippet'=>'id']) }}">
-                          Replace Default View Login in Laravel
-                      </a>
-                  </h3>
-                </div>
-              </div> 
-              <div class="list-other-trick">
-                <div class="round-image"> 
-                    <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
-                </div>
-                <div>
-                  <p class="snippet-user">
-                      <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
-                      Nama User
-                      </a>
-                  </p>
-                  <h3 class="snippet-title">
-                      <a href="{{ route('snippet.detail',['snippet'=>'id']) }}">
-                          Replace Default View Login in Laravel
-                      </a>
-                  </h3>
-                </div>
-              </div> 
-              <div class="list-other-trick">
-                <div class="round-image"> 
-                    <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
-                </div>
-                <div>
-                  <p class="snippet-user">
-                      <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
-                      Nama User
-                      </a>
-                  </p>
-                  <h3 class="snippet-title">
-                      <a href="{{ route('snippet.detail',['snippet'=>'id']) }}">
-                          Replace Default View Login in Laravel
-                      </a>
-                  </h3>
-                </div>
-              </div> 
+              </div>
           </div>
         </div>
 

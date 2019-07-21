@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Model\Contributor;
+use App\Model\Snippet;
+
 class SnippetController extends Controller
 {
 
@@ -20,9 +23,11 @@ class SnippetController extends Controller
         return view('snippet.home');
     }
     
-    public function detail($id)
+    public function detail(Contributor $contributor,Snippet $snippet)
     {
-        return view('snippet.detail');
+        return view('snippet.detail',[
+            'snippet'=>$snippet
+        ]);
     }
 
 }

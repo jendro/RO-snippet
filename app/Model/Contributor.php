@@ -15,6 +15,15 @@ class Contributor extends Authenticatable
     ];
 
 
+    /** Relation */
+
+    public function snippet()
+    {
+        return $this->hasMany('App\Model\Snippet','contributor_id');
+    }
+
+    /** End Relation */
+
 
 
 }
