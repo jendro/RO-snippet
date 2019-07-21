@@ -27,6 +27,7 @@ class SnippetController extends Controller
     
     public function detail(Contributor $contributor,Snippet $snippet)
     {
+        $snippet->counterView();
         return view('snippet.detail',[
             'snippet'=>$snippet,
             'other_r'=>Snippet::where('id', '!=', $snippet->id)

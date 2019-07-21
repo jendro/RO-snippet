@@ -22,11 +22,20 @@ class Snippet extends Model
         });
     }
 
+
+    /** action */
     public function checkContributorStar($contributor_id)
     {
         //if empty return true
         return ($this->star()->where('contributor_id',$contributor_id)->count())?false:true;
     }
+    
+    public function counterView(){
+        $view = $this->view;
+        $this->view += 1;
+        $this->save();
+    }
+    /** end of action */
 
      /** Relation */
 
