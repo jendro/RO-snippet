@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
@@ -10,12 +11,27 @@ class AdminController extends Controller
     
     public function index(Request $request)
     {
-        return view('user.admin');
+        return view('user.admin',[
+            'user'=>Auth::user()
+        ]);
     }
 
     public function edit(Request $request)
     {
-        return view('user.form-profil');
+        return view('user.form-profil',[
+            'user'=>Auth::user()
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        Auth::user()->update($request->only(
+            'nickname',
+            'name',
+            'bio'
+        ));
+        Auth::user()->updateAvatar($request->file('avatar'));
+        return redirect()->route('user.admin',['user'=>Auth::user()->id]);
     }
 
 

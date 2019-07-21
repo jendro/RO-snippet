@@ -322,6 +322,13 @@ p.login-warning {
     color: white;
 }
 
+.user-image {
+    width: 60px;
+    height:60px;
+    margin-right:0;
+    margin: 0 auto;
+    border-radius: 100%;
+}
 /** END OF USER ADMIN PAGE */
 
 
@@ -355,6 +362,9 @@ p.login-warning {
     padding-bottom: 20px;
 }
 
+.mgr10{
+    margin-right:10px
+}
 
 /** FORM */
 

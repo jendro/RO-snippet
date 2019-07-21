@@ -4,14 +4,14 @@
 
 <div class="first-content content">
   <div class="container user-container" >
-    <div class="snippet-image row"> 
-      <div class="col-md-1">
-        <img class="user-image" src="{{ asset('img/testimonials/05.jpg') }}" alt=""> 
+    <div class="row"> 
+      <div class="col-md-1" style="padding-right:0;text-align:center">
+        <img class="user-image" src="{{ $user->avatar }}"> 
       </div>
       <div class="col-md-11">
         <h2 class="title"">
-          Nama User 
-          <a href="{{ route('user.edit',['user'=>'user']) }}" class="edit-user-button">
+          {{ $user->name }}
+          <a href="{{ route('user.edit',['user'=>$user->id]) }}" class="edit-user-button">
             <i class="fa fa-pencil"></i>
           </a>
         </h2> 
@@ -36,15 +36,13 @@
     <div class="list-snippet">
       
       <div class="row">
-        
-        @include('user.snippet')
-
+        @foreach($user->snippet as $snippet)
+          @include('user.snippet')
+        @endforeach
       </div>
 
     </div>
 
   </div>
 </div>
-
-
 @endsection

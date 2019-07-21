@@ -9,7 +9,10 @@
       <div class="row">
         
         <div class="col-md-8" style="background:white;padding:20px">
-          <h4 class="form-title">Tambah Snippet</h4>
+          <h4 class="form-title">
+            <a href="{{ route('user.admin',['user'=>Auth::user()->id]) }}">Snippet</a> <i class="fa fa-angle-right"></i> 
+            Tambah Snippet
+          </h4>
 
           <form method="POST" class="form-horizontal" action="{{ route('snippet.create') }}">
             @csrf
@@ -42,13 +45,14 @@
             <div class="form-group">
               <label class="control-label col-sm-2" for="code">Code:</label>
               <div class="col-sm-9"> 
-                <textarea required name="code" id="code" rows="5" class="form-control">{{ old('code') }}</textarea>
+                <textarea required name="code" id="code" rows="20" class="form-control">{{ old('code') }}</textarea>
               </div>
             </div>
 
             <div class="form-group"> 
               <div class="col-sm-offset-2 col-sm-9">
                 <button type="submit" class="btn btn-primary pull-right">Create</button>
+                <a class="btn btn-warning pull-right mgr10" href="{{ route('user.admin',['user'=>Auth::user()->id]) }}">Cancel</a>
               </div>
             </div>
 
