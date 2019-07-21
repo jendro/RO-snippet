@@ -78,10 +78,16 @@
                 @php($no = 0)
                 @foreach($snippet->komentar as $komentar)
                   <div class="komentar clearfix {{ ($no++%2==1)?'odd':'' }}">
+                    @if(Auth::user()->id==$komentar->contributor_id)
+                      <a href="#" onclick="hapus('{{ route('komentar.delete',['snippet'=>$snippet->id,'komentar'=>$komentar->id]) }}')" class="btn btn-round btn-small btn-danger btn-delete" href="">
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    @endif
                     <div> 
                       <img src="{{ $komentar->contributor->avatar }}" alt=""> 
                     </div>
                     <div class="detail-komentar">
+                      <h5 class="user-komentar">{{ $komentar->contributor->name }} <span class="timeago"> . {{ $komentar->created_at->diffForHumans() }}<span></h5>
                       {{ $komentar->komentar }}
                     </div>
                   </div>
@@ -95,8 +101,12 @@
                       <img src="{{ Auth::user()->avatar }}" alt=""> 
                     </div>
                     <div class="col-md-11">
-                      <textarea name="" id="" class="form-control" placeholder="tulis komentar ... "></textarea>
-                      <input type="submit" value="komentar" class="btn btn-success">
+                      <form method="post" action="{{ route('komentar.create',['snippet'=>$snippet->id]) }}">
+                        @csrf
+                        <input type="hidden" name="snippet_id" value="{{ $snippet->id }}">
+                        <textarea name="komentar" id="komentar" class="form-control" placeholder="tulis komentar ... "></textarea>
+                        <input type="submit" value="komentar" class="btn btn-success">
+                      </form>
                     </div>
                   </div>
                 @else

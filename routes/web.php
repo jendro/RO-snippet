@@ -13,6 +13,9 @@ Route::get('/snippet/{snippet}/edit', 'User\SnippetController@edit')->name('snip
 Route::put('/snippet/{snippet}/update', 'User\SnippetController@update')->name('snippet.update');
 Route::get('/snippet/{snippet}/delete', 'User\SnippetController@delete')->name('snippet.delete');
 
+Route::post('/snippet/{snippet}/komentar/create', 'User\SnippetKomentarController@create')->name('komentar.create');
+Route::get('/snippet/{snippet}/komentar/{komentar}/delete', 'User\SnippetKomentarController@delete')->name('komentar.delete');
+
 Route::get('/{user}/admin', 'User\AdminController@index')->name('user.admin');
 Route::get('/{user}/profil/edit', 'User\AdminController@edit')->name('user.edit');
 Route::put('/{user}/profil/update', 'User\AdminController@update')->name('user.update');
