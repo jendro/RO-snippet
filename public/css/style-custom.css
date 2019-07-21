@@ -171,8 +171,16 @@
 
 .list-other-trick {
     border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.list-other-trick .round-image{
+    text-align: center;
+}
+.list-other-trick .round-image img{
+    width:50px;
+    height:50px;
+    margin: 0 auto;
 }
 
 .other-trick-title{

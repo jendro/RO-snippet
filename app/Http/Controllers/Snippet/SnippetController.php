@@ -28,7 +28,12 @@ class SnippetController extends Controller
     public function detail(Contributor $contributor,Snippet $snippet)
     {
         return view('snippet.detail',[
-            'snippet'=>$snippet
+            'snippet'=>$snippet,
+            'other_r'=>Snippet::where('id', '!=', $snippet->id)
+                ->where('framework_id',$snippet->framework_id)
+                ->orderBy('view')
+                ->limit(5)
+                ->get()
         ]);
     }
 

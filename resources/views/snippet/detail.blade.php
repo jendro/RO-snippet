@@ -125,23 +125,25 @@
         <div class="col-md-4 snippet">
           <div class="snippet-content pb20">
               <h4 class="other-trick-title">Other Snippet & Trick</h4>
-              <div class="list-other-trick">
-                <div class="round-image"> 
-                    <img src="{{ asset('images/frameworks/laravel2.png') }}" alt=""> 
+              @foreach($other_r as $other)
+                <div class="list-other-trick clearfix">
+                  <div class="round-image"> 
+                      <img src="{{ asset('images/frameworks/'.$other->framework->bg) }}"> 
+                  </div>
+                  <div>
+                    <p class="snippet-user">
+                        <a href="{{ route('snippet.user',['contributor'=>$other->contributor->id]) }}">
+                        {{ $other->contributor->name }}
+                        </a>
+                    </p>
+                    <h3 class="snippet-title">
+                        <a href="{{ route('snippet.detail',['contributor'=>$other->contributor->id,'snippet'=>$other->id]) }}">
+                            {{ $other->title }}
+                        </a>
+                    </h3>
+                  </div>
                 </div>
-                <div>
-                  <p class="snippet-user">
-                      <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
-                      Nama User
-                      </a>
-                  </p>
-                  <h3 class="snippet-title">
-                      <a href="{{ route('snippet.detail',['contributor'=>1,'snippet'=>'id']) }}">
-                          Replace Default View Login in Laravel
-                      </a>
-                  </h3>
-                </div>
-              </div>
+              @endforeach
           </div>
         </div>
 
