@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use APP\Model\Snippet;
 
 class SnippetStar extends Model
 {
@@ -19,6 +20,14 @@ class SnippetStar extends Model
 
         static::creating(function($query){
             $query->contributor_id = auth()->user()->id;
+
+            //TODO :: Mungkin dipindah menggunakan event handler
+            $snippet = Snippet::where('id',$query->snippet_id);
+            $data = $snippet->first();
+            $snippet->update([
+                'star'=>$data->star+1
+            ]);
+
         });
     }
 

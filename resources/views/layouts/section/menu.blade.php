@@ -10,8 +10,7 @@
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="{{ route('user.edit',['user'=>Auth::user()->id]) }}">Profil</a></li>
-                <li><a href="{{ route('user.admin',['user'=>Auth::user()->id]) }}">List Snippet</a></li>
+                <li><a href="{{ route('user.admin',['user'=>Auth::user()->id]) }}">Profil & List Snippet</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>
         </li>

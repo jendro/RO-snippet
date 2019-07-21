@@ -39,7 +39,7 @@
             <i class="fa fa-caret-down"></i> {{ $snippet->down }}
             <div class="pull-right">
                 <i class="fa fa-eye"></i> {{ $snippet->view }}
-                <i class="fa fa-copy"></i> {{ $snippet->copied }}
+                {{-- <i class="fa fa-copy"></i> {{ $snippet->copied }} --}}
                 <i class="fa fa-star"></i> {{ $snippet->star }}
             </div>
         </div>

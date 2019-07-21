@@ -18,7 +18,7 @@
             Github
           </a>
           <i class="fa fa-eye"></i> 0
-          <i class="fa fa-copy"></i> 0
+          {{-- <i class="fa fa-copy"></i> 0 --}}
           <i class="fa fa-star"></i> 0
         </div>
       </div>

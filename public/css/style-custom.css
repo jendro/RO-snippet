@@ -149,7 +149,7 @@
 }
 
 .list-snippet .snippet-statistic i:not(:first-child) {
-    margin-left: 8px;
+    margin-left: 5px;
 }
 .list-snippet .snippet-timeago {
     font-size:0.9em;

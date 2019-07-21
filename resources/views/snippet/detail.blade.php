@@ -44,9 +44,9 @@
                   
                   <div class="pull-right">
                     <i class="fa fa-eye"></i> {{ $snippet->view }}
-                    <i class="fa fa-copy"></i> {{ $snippet->copied }}
-                    @if(Auth::user()->id != $snippet->contributor_id)
-                      <a href="#" class="action-star">
+                    {{-- <i class="fa fa-copy"></i> {{ $snippet->copied }} --}}
+                    @if(Auth::user() && Auth::user()->id != $snippet->contributor_id && $snippet->checkContributorStar(Auth::user()->id))
+                      <a href="#" onclick="star()" class="action-star" style="margin-left:5px">
                         <i class="fa fa-star-o"></i>
                       </a>
                     @else
@@ -63,11 +63,11 @@
               </div>
 
               <div class="row snippet-description">
-                <div class="pull-right action-snippet">
+                {{-- <div class="pull-right action-snippet">
                   <a href="#">
                     <i class="fa fa-copy"></i>
                   </a>
-                </div>
+                </div> --}}
                 <h4>Code </h4>
 <pre><code class="{{ $snippet->framework->syntax }}">{{ $snippet->code }}</code></pre>  
               </div>
@@ -155,7 +155,18 @@
 </div>
 
 <script>
-  hljs.initHighlightingOnLoad();
-</script>
+hljs.initHighlightingOnLoad();
 
+@if(Auth::user() && Auth::user()->id != $snippet->contributor_id)
+  function star()
+  {
+    $.post("{{ route('snippet.star',['snippet'=>$snippet->id]) }}",{
+      _method:'POST',
+      _token:'{{ csrf_token() }}'
+    }).done(function(){
+      window.location.href = "{{ route('snippet.detail',['contributor'=>$snippet->contributor_id,'snippet'=>$snippet->id]) }}";
+    });
+  }
+@endif
+</script> 
 @endsection

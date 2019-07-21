@@ -10,7 +10,8 @@
           
           <div class="col-md-8" style="background:white;padding:20px">
             <h4 class="form-title">
-              <a href="{{ route('user.admin',['user'=>Auth::user()->id]) }}">Snippet</a> <i class="fa fa-angle-right"></i> 
+              <a href="{{ route('user.admin',['user'=>Auth::user()->id]) }}">List Snippet</a> <i class="fa fa-angle-right"></i> 
+              <a href="{{ route('snippet.detail',['contributor'=>$snippet->contributor_id,'snippet'=>$snippet->id]) }}">Detail Snippet</a> <i class="fa fa-angle-right"></i> 
               Edit Snippet
             </h4>
 

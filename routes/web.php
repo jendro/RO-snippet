@@ -24,4 +24,6 @@ Route::get('/{contributor}', 'Snippet\UserController')->name('snippet.user');
 Route::get('/search', 'Snippet\SearchController')->name('snippet.search');
 Route::get('/tag/{tag}', 'Snippet\TagController')->name('snippet.tag');
 Route::get('/framework/{framework}', 'Snippet\FrameworkController')->name('snippet.framework');
+
 Route::get('/snippet/{contributor}/{snippet}', 'Snippet\SnippetController@detail')->name('snippet.detail');
+Route::post('/snippet/{snippet}/star', 'Snippet\SnippetStarController')->name('snippet.star');
