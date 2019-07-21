@@ -16,13 +16,12 @@
           </a>
         </h2> 
         <div class="user-statistik">
-          <a class="user-github" href="">
+          <a class="user-github" href="{{ $user->url_html }}" target="_blank">
             <i class="fa fa-github"></i>
             Github
           </a>
-          <i class="fa fa-eye"></i> 10
-          <i class="fa fa-copy"></i> 10
-          <i class="fa fa-star"></i> 10
+          <i class="fa fa-eye"></i> {{ $total_view }}
+          <i class="fa fa-star"></i> {{ $total_star }}
         </div>
       </div>
       <br>

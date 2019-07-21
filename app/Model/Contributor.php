@@ -12,7 +12,7 @@ class Contributor extends Authenticatable
     protected $table = 'contributor';
 
     protected $fillable = [
-        'id', 'nickname', 'name', 'email', 'company',	'blog',	'location',	'bio', 'avatar'
+        'id', 'nickname', 'name', 'email', 'company',	'blog',	'location',	'bio', 'avatar', 'url_api', 'url_html'
     ];
     
 

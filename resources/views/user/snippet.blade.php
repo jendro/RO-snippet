@@ -2,9 +2,7 @@
     <div class="snippet-content">
         <div class="row snippet-header">
             <p class="snippet-user">
-                <a href="{{ route('snippet.user',['user'=>'nama_user']) }}">
                 {{ $snippet->contributor->name }}
-                </a>
             </p>
             <h3 class="snippet-title">
                 <a href="{{ route('snippet.detail',[

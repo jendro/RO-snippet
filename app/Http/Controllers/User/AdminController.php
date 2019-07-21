@@ -11,8 +11,12 @@ class AdminController extends Controller
     
     public function index(Request $request)
     {
+        $user = Auth::user();
+        $snippet = $user->snippet();
         return view('user.admin',[
-            'user'=>Auth::user()
+            'user'=>$user,
+            'total_view'=>$snippet->sum('view'),
+            'total_star'=>$snippet->sum('star')
         ]);
     }
 
