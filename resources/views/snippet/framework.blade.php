@@ -9,9 +9,9 @@
     <div class="list-snippet">
       
       <div class="row">
-        
-        @include('snippet.component.snippet')
-
+        @foreach($snippet_r as $snippet)
+          @include('snippet.component.snippet')
+        @endforeach
       </div>
 
     </div>

@@ -20,7 +20,9 @@ class SnippetController extends Controller
 
     public function index()
     {
-        return view('snippet.home');
+        return view('snippet.home',[
+            'snippet_r'=>Snippet::all()
+        ]);
     }
     
     public function detail(Contributor $contributor,Snippet $snippet)

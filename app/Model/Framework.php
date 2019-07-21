@@ -13,12 +13,7 @@ class Framework extends Model
 
     public function snippet()
     {
-        return $this->hasMany('App\Model\Snippet','contributor_id');
-    }
-
-    public function framework()
-    {
-        return $this->belongsTo('App\Model\Framework','framework_id');
+        return $this->hasMany('App\Model\Snippet','framework_id');
     }
 
     /** End Relation */

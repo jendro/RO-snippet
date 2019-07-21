@@ -16,7 +16,7 @@ Route::get('/snippet/{snippet}/delete', 'User\SnippetController@delete')->name('
 Route::get('/{user}/admin', 'User\AdminController@index')->name('user.admin');
 Route::get('/{user}/profil/edit', 'User\AdminController@edit')->name('user.edit');
 Route::put('/{user}/profil/update', 'User\AdminController@update')->name('user.update');
-Route::get('/{user}', 'Snippet\UserController')->name('snippet.user');
+Route::get('/{contributor}', 'Snippet\UserController')->name('snippet.user');
 
 Route::get('/search', 'Snippet\SearchController')->name('snippet.search');
 Route::get('/tag/{tag}', 'Snippet\TagController')->name('snippet.tag');

@@ -22,7 +22,7 @@
                         </a>
                     </p>
                     <h3 class="snippet-title">
-                        Replace Default View Login in Laravel
+                        {{ $snippet->title }}
                     </h3>
                     <span class="snippet-timeago">{{ $snippet->created_at->diffForHumans() }}, in :</span>
                     <span class="snippet-tag {{ $snippet->framework->class }}">
