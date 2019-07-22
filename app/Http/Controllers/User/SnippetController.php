@@ -32,7 +32,7 @@ class SnippetController extends Controller
     {
         $snippet = Snippet::create($request->all());
         if($snippet){
-            $tags = explode(",",$request->tag);
+            $tags = array_filter(explode(",",$request->tag));
             foreach($tags as $tag){
                 $data_tag = Tag::firstOrCreate(['tag'=>$tag]);
                 $snippet->tags()->create(['tag_id'=>$data_tag->id]);
@@ -72,7 +72,7 @@ class SnippetController extends Controller
                     'code'
                 )
             );
-            $tags = explode(",",$request->tag); //new tag
+            $tags = array_filter(explode(",",$request->tag)); //new tag
             $snippetTag = $snippet->tags(); //old tag
             $currentTag = [];  //list tag exist
             foreach($tags as $tag){
