@@ -49,6 +49,13 @@
               </div>
             </div>
 
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="code">Tag :</label>
+              <div class="col-sm-9"> 
+                <input type="text" name="tag" id="tag" data-role="tagsinput" value="{{ old('tag') }}">
+              </div>
+            </div>
+
             <div class="form-group"> 
               <div class="col-sm-offset-2 col-sm-9">
                 <button type="submit" class="btn btn-primary pull-right">Create</button>
@@ -66,4 +73,13 @@
   </div>
 </div>
 
+<script>
+$(document).ready(function(){
+  $(".bootstrap-tagsinput input").keypress(function(e){
+    if(e.which==13){
+      e.preventDefault();
+    }
+  });
+});
+</script>
 @endsection

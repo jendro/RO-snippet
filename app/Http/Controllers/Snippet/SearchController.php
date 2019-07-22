@@ -20,7 +20,13 @@ class SearchController extends Controller
         $query = $request->q;
         return view('snippet.search',[
             'q'=>$query,
-            'snippet_r'=>Snippet::where('title', 'LIKE', "%$query%")->paginate()
+            'snippet_r'=>Snippet::with([
+                    'tags.tag',
+                    'framework',
+                    'contributor'
+                ])    
+                ->where('title', 'LIKE', "%$query%")
+                ->paginate()
         ]);
     }
 }

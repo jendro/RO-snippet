@@ -406,6 +406,10 @@ p.login-warning {
     border-bottom: 1px solid #eee;
 }
 
+.bootstrap-tagsinput {
+    width: 100%;
+}
+
 .swal2-popup {
     font-size: 1.2em !important;
 }

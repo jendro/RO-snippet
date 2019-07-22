@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 
 use App\Model\Framework;
 use App\Model\Snippet;
+use App\Model\Tag;
+use App\Model\SnippetTag;
 
 class SnippetController extends Controller
 {
@@ -28,12 +30,18 @@ class SnippetController extends Controller
 
     public function create(Request $request)
     {
-        $data = Snippet::create($request->all());
-        if($data){
+        $snippet = Snippet::create($request->all());
+        if($snippet){
+            $tags = explode(",",$request->tag);
+            foreach($tags as $tag){
+                $data_tag = Tag::firstOrCreate(['tag'=>$tag]);
+                $snippet->tags()->create(['tag_id'=>$data_tag->id]);
+            }
             return redirect()->route('snippet.detail',[
-                'contributor'=>$data->contributor_id,
-                'snippet'=>$data->id
+                'contributor'=>$snippet->contributor_id,
+                'snippet'=>$snippet->id
             ]);
+
         }else{
             return redirect()->back()->withInput($request->all());
         }
@@ -56,7 +64,24 @@ class SnippetController extends Controller
         if(!Auth::user()->authorization($snippet->contributor)){
             return redirect()->route('home');
         }else{
-            $snippet->update($request->only('framework_id','title','description','code'));
+            $snippet->update(
+                $request->only(
+                    'framework_id',
+                    'title',
+                    'description',
+                    'code'
+                )
+            );
+            $tags = explode(",",$request->tag); //new tag
+            $snippetTag = $snippet->tags(); //old tag
+            $currentTag = [];  //list tag exist
+            foreach($tags as $tag){
+                $dataTag = Tag::firstOrCreate(['tag'=>trim($tag)]);
+                $snippet->tags()->firstOrCreate(['tag_id'=>$dataTag->id]);
+                $currentTag[] = $dataTag->id; //add tag exist
+            }
+            $notExists = $snippet->tags()->whereNotIn('tag_id',$currentTag)->get(); //check old tag not exist
+            $notExists->each->delete(); //deleting all not exist tag
             return redirect()->back();
         }
     }
@@ -66,16 +91,9 @@ class SnippetController extends Controller
         if(!Auth::user()->authorization($snippet->contributor)){
             return redirect()->route('home');
         }else{
-
-            //TODO :: mungkin dipindah dimanaa gitu biar rapi, entahlah belum ada ide, apa event atau apa??
-            //delete star
-            foreach($snippet->stars as $star){
-                $star->delete();
-            }
-            //delete komentar
-            foreach($snippet->komentar as $komentar){
-                $komentar->delete();
-            }
+            $snippet->stars->each->delete();//delete star
+            $snippet->komentar->each->delete();//delete komentar
+            $snippet->tags->each->delete();//delete tag
             $snippet->delete();
             return redirect()->back();
         }

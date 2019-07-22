@@ -24,10 +24,10 @@ class Snippet extends Model
 
 
     /** action */
-    public function checkContributorStar($contributor_id)
+    public function checkContributorStarExist($contributor_id)
     {
         //if empty return true
-        return ($this->star()->where('contributor_id',$contributor_id)->count())?false:true;
+        return ($this->star()->where('contributor_id',$contributor_id)->count())?true:false;
     }
     
     public function counterView(){
@@ -36,6 +36,18 @@ class Snippet extends Model
         $this->save();
     }
     /** end of action */
+
+    /** data */
+    public function implodeTag()
+    {
+        $tags = $this->tags;
+        $result = [];
+        foreach($tags as $tag){
+            $result[] = $tag->tag->tag;
+        }
+        return implode(", ",$result);
+    }
+    /** end of data */
 
      /** Relation */
 
@@ -59,7 +71,7 @@ class Snippet extends Model
         return $this->hasMany('App\Model\SnippetStar','snippet_id');
     }
 
-    public function tag()
+    public function tags()
     {
         return $this->hasMany('App\Model\SnippetTag','snippet_id');
     }

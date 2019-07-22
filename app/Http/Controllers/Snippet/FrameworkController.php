@@ -14,7 +14,14 @@ class FrameworkController extends Controller
     {
         return view('snippet.framework',[
             'framework'=>$framework->framework,
-            'snippet_r'=>$framework->snippet()->paginate()
+            'snippet_r'=>
+                $framework->snippet()
+                    ->with([
+                    'tags.tag',
+                    'framework',
+                    'contributor'
+                    ])    
+                    ->paginate()
         ]);
     }
     

@@ -21,7 +21,11 @@ class SnippetController extends Controller
     public function index()
     {
         return view('snippet.home',[
-            'snippet_r'=>Snippet::paginate()
+            'snippet_r'=>Snippet::with([
+                'tags.tag',
+                'framework',
+                'contributor'])
+            ->paginate()
         ]);
     }
     

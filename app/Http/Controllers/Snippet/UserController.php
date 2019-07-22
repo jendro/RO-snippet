@@ -17,7 +17,13 @@ class UserController extends Controller
      */
     public function __invoke(Contributor $contributor)
     {
-        $snippet = $contributor->snippet();
+        $snippet = $contributor->snippet()
+            ->with([
+                'tags.tag',
+                'framework',
+                'contributor'
+            ]);
+
         return view('snippet.user',[
             'contributor'=>$contributor,
             'snippet_r'=>$snippet->paginate(),

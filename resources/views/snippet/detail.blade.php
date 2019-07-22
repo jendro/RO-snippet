@@ -45,7 +45,7 @@
                   <div class="pull-right">
                     <i class="fa fa-eye"></i> {{ $snippet->view }}
                     {{-- <i class="fa fa-copy"></i> {{ $snippet->copied }} --}}
-                    @if(Auth::user() && Auth::user()->id != $snippet->contributor_id && $snippet->checkContributorStar(Auth::user()->id))
+                    @if(Auth::user() && Auth::user()->id != $snippet->contributor_id && !$snippet->checkContributorStarExist(Auth::user()->id))
                       <a href="#" onclick="star()" class="action-star" style="margin-left:5px">
                         <i class="fa fa-star-o"></i>
                       </a>
@@ -79,7 +79,7 @@
                 @foreach($snippet->komentar as $komentar)
                   <div class="komentar clearfix {{ ($no++%2==1)?'odd':'' }}">
                     @if(Auth::user()->id==$komentar->contributor_id)
-                      <a href="#" onclick="hapus('{{ route('komentar.delete',['snippet'=>$snippet->id,'komentar'=>$komentar->id]) }}')" class="btn btn-round btn-small btn-danger btn-delete" href="">
+                      <a href="#" onclick="hapus('{{ route('komentar.destroy',['snippet'=>$snippet->id,'komentar'=>$komentar->id]) }}')" class="btn btn-round btn-small btn-danger btn-delete" href="">
                         <i class="fa fa-trash"></i>
                       </a>
                     @endif

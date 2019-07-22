@@ -26,7 +26,9 @@
                     {{ $snippet->framework->framework }}
                 </a>
             </span>
-            {{-- <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">View</a></span> --}}
+            @foreach($snippet->tags as $tag)
+                <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>$tag->tag->id]) }}">{{ $tag->tag->tag }}</a></span>
+            @endforeach
         </div>
         <div class="snippet-statistic">
             <i class="fa fa-caret-up"></i> {{ $snippet->up }}

@@ -13,7 +13,7 @@
                 </a>
             </h3>
             <div class="snippet-action">
-                <a href="#" onclick="hapus('{{ route('snippet.delete',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
+                <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
                     <i class="fa fa-trash"></i>
                 </a>
                 <a href="{{ route('snippet.edit',['snippet'=>$snippet->id]) }}" class="btn btn-round btn-small btn-success">
@@ -30,7 +30,9 @@
                     Laravel
                 </a>
             </span>
-            {{-- <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>'tag']) }}">View</a></span> --}}
+            @foreach($snippet->tags as $tag)
+                <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>$tag->tag->id]) }}">{{ $tag->tag->tag }}</a></span>
+            @endforeach
         </div>
         <div class="snippet-statistic">
             <i class="fa fa-caret-up"></i> {{ $snippet->up }}
