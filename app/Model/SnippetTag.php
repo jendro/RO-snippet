@@ -17,7 +17,7 @@ class SnippetTag extends Model
 
     public function snippet()
     {
-        return $this->hasMany('App\Model\Snippet','snippet_id');
+        return $this->belongsTo('App\Model\Snippet','snippet_id');
     }
     
     public function tag()

@@ -15,7 +15,7 @@ class Tag extends Model
 
      /** Relation */
 
-    public function snippet()
+    public function snippetTags()
     {
         return $this->hasMany('App\Model\SnippetTag','tag_id');
     }

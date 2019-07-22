@@ -9,13 +9,14 @@
     <div class="list-snippet">
       
       <div class="row">
-        @foreach($snippet_r as $snippet)
+        @foreach($snippettags as $snippetTag)
+          @php($snippet = $snippetTag->snippet)
           @include('snippet.component.snippet')
         @endforeach
       </div>
 
       <div class="text-center">
-        {{ $snippet_r->links() }}
+        {{ $snippettags->links() }}
       </div>
 
     </div>
