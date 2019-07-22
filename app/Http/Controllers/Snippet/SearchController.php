@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Snippet;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Model\Snippet;
+
 class SearchController extends Controller
 {
     /**
@@ -15,8 +17,10 @@ class SearchController extends Controller
      */
     public function __invoke(Request $request)
     {
+        $query = $request->q;
         return view('snippet.search',[
-            'q'=>$request->q
+            'q'=>$query,
+            'snippet_r'=>Snippet::where('title', 'LIKE', "%$query%")->paginate()
         ]);
     }
 }

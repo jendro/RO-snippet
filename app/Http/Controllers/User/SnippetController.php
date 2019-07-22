@@ -61,7 +61,7 @@ class SnippetController extends Controller
         }
     }
 
-    public function delete(Snippet $snippet)
+    public function destroy(Snippet $snippet)
     {
         if(!Auth::user()->authorization($snippet->contributor)){
             return redirect()->route('home');
