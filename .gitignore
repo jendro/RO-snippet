@@ -3,6 +3,7 @@
 /public/storage
 /public/images/web/*
 /storage/*.key
+public/error_log
 /vendor
 .env
 .env.backup
