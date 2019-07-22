@@ -26,7 +26,7 @@
             <span class="snippet-timeago">{{ $snippet->created_at->diffForHumans() }}, in :</span>
             <span class="snippet-tag tag-laravel">
                 <a class="framework-icon" title="laravel" href="{{ route('snippet.framework',['framewkro'=>$snippet->framework->id]) }}">
-                    <img src="{{ asset('images/frameworks/laravel.png') }}" alt="">
+                    <img src="{{ asset($snippet->framework->icon) }}" alt="">
                     Laravel
                 </a>
             </span>

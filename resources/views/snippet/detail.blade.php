@@ -128,7 +128,7 @@
               @foreach($other_r as $other)
                 <div class="list-other-trick clearfix">
                   <div class="round-image"> 
-                      <img src="{{ asset('images/frameworks/'.$other->framework->bg) }}"> 
+                      <img src="{{ asset($other->framework->bg) }}"> 
                   </div>
                   <div>
                     <p class="snippet-user">
