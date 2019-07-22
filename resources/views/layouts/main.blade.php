@@ -29,6 +29,7 @@
       
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
       <script type="text/javascript" src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
+      <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
       
   </head>
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

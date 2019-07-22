@@ -80,6 +80,9 @@
 
 
 /** START LIST SNIPPET */
+.list-snippet{
+    margin-bottom:30px;
+}
 .list-snippet .snippet a{
     color:inherit;
 }
@@ -91,7 +94,9 @@
     text-decoration: none!important;
 }
 .list-snippet .snippet {
-    padding: 10px;
+    margin-bottom:13px;
+    padding-left:0;
+    padding-right:1%;
 }
 
 .list-snippet .snippet-content {
@@ -116,15 +121,20 @@
     margin-bottom:3px;
 }
 
+.list-snippet .snippet-title a{
+    font-weight: bold;
+    color:#96B7D6;
+}
+
 .list-snippet .snippet-description {
     border-bottom: 1px solid #eee;
     padding: 0 10px 10px;
 }
 
 .list-snippet .snippet-description p {
-    height:100px;
+    max-height:100px;
     overflow: auto;
-    font-size: 13.5px;
+    font-size: 13px;
 }
 .list-snippet .snippet-description p::-webkit-scrollbar {
     width: 5px;
@@ -287,6 +297,7 @@ p.login-warning {
 .user-container {
     padding: 10px;
     background: white;
+    margin-bottom:10px;
 }
 
 .user-github {
@@ -332,7 +343,7 @@ p.login-warning {
 
 .snippet-action {
     position: absolute;
-    top: 15px;
+    top: 5px;
     right: 15px;
 }
 

@@ -26,7 +26,7 @@ class SearchController extends Controller
                     'contributor'
                 ])    
                 ->where('title', 'LIKE', "%$query%")
-                ->paginate()
+                ->paginate(21)
         ]);
     }
 }

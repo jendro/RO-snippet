@@ -23,14 +23,14 @@ function main() {
         offset: 80
     });
 
-	// Hide nav on click
-  $(".navbar-nav li a").click(function (event) {
-    // check if window is small enough so dropdown is created
-    var toggle = $(".navbar-toggle").is(":visible");
-    if (toggle) {
-      $(".navbar-collapse").collapse('hide');
-    }
-  });
+	  // Hide nav on click
+    $(".navbar-nav li a").click(function (event) {
+      // check if window is small enough so dropdown is created
+      var toggle = $(".navbar-toggle").is(":visible");
+      if (toggle) {
+        $(".navbar-collapse").collapse('hide');
+      }
+    });
 	
 	
     // Nivo Lightbox 
@@ -60,3 +60,12 @@ function hapus(url){
     	}
     })
 }
+
+$(document).ready(function(){
+  
+  $(".masonry").masonry({
+    itemSelector: '.snippet',
+    horizontalOrder: true,
+  });
+
+});

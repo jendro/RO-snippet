@@ -15,7 +15,9 @@ class TagController extends Controller
     {
         return view('snippet.tag',[
             'tag'=>$tag->tag,
-            'snippettags'=>$tag->snippetTags()->paginate()
+            'snippettags'=>$tag
+                ->snippetTags()
+                ->paginate(21)
         ]);
     }
 }

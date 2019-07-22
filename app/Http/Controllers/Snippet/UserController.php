@@ -26,7 +26,7 @@ class UserController extends Controller
 
         return view('snippet.user',[
             'contributor'=>$contributor,
-            'snippet_r'=>$snippet->paginate(),
+            'snippet_r'=>$snippet->paginate(21),
             'total_view'=>$snippet->sum('view'),
             'total_star'=>$snippet->sum('star')
         ]);

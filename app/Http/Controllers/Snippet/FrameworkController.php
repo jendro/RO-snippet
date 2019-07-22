@@ -21,7 +21,7 @@ class FrameworkController extends Controller
                     'framework',
                     'contributor'
                     ])    
-                    ->paginate()
+                    ->paginate(21)
         ]);
     }
     

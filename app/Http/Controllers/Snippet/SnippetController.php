@@ -25,7 +25,7 @@ class SnippetController extends Controller
                 'tags.tag',
                 'framework',
                 'contributor'])
-            ->paginate()
+            ->paginate(21)
         ]);
     }
     
