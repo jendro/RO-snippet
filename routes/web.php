@@ -1,5 +1,9 @@
 <?php   
 
+// Route::get('sitemap.xml',function(){
+//     return view('sitemap');
+// });
+
 Route::get('auth/github', 'Auth\GithubController@redirectToProvider')->name('auth.github');
 Route::get('auth/github/callback', 'Auth\GithubController@handleProviderCallback')->name('auth.github.callback');
 Route::get('logout', 'Auth\GithubController@logout')->name('logout');
