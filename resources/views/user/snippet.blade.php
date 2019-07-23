@@ -13,12 +13,19 @@
                 </a>
             </h3>
             <div class="snippet-action">
-                <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
-                    <i class="fa fa-trash"></i>
-                </a>
-                <a href="{{ route('snippet.edit',['snippet'=>$snippet->id]) }}" class="btn btn-round btn-small btn-success">
-                    <i class="fa fa-pencil"></i>
-                </a>
+                
+                @can('destroy', $snippet)
+                    <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                @endcan
+                
+                @can('update', $snippet)
+                    <a href="{{ route('snippet.edit',['snippet'=>$snippet->id]) }}" class="btn btn-round btn-small btn-success">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                @endcan
+
             </div>
         </div>
         <div class="row snippet-description">

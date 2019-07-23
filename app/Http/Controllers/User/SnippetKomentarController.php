@@ -32,13 +32,13 @@ class SnippetKomentarController extends Controller
         }
     }
 
-    public function delete(Snippet $snippet, SnippetKomentar $komentar)
+    public function destroy(Snippet $snippet, SnippetKomentar $komentar)
     {
-        if(!Auth::user()->authorization($snippet->contributor)){
-            return redirect()->route('home');
-        }else{
+        if($this->authorize('destroy', $komentar)){
             $komentar->delete();
             return redirect()->back();
+        }else{
+            return redirect()->route('home');
         }
     }
 

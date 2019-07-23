@@ -49,21 +49,19 @@ class SnippetController extends Controller
 
     public function edit(Snippet $snippet)
     {
-        if(!Auth::user()->authorization($snippet->contributor)){
-            return redirect()->route('home');
-        }else{
+        if($this->authorize('update', $snippet)){
             return view('user.snippet.form-edit',[
                 'snippet'=>$snippet,
                 'framework_r'=>Framework::orderBy('framework')->get()
             ]);
+        }else{
+            return redirect()->route('home');
         }
     }
 
     public function update(Request $request, Snippet $snippet)
     {
-        if(!Auth::user()->authorization($snippet->contributor)){
-            return redirect()->route('home');
-        }else{
+        if($this->authorize('update', $snippet)){
             $snippet->update(
                 $request->only(
                     'framework_id',
@@ -83,19 +81,21 @@ class SnippetController extends Controller
             $notExists = $snippet->tags()->whereNotIn('tag_id',$currentTag)->get(); //check old tag not exist
             $notExists->each->delete(); //deleting all not exist tag
             return redirect()->back();
+        }else{
+            return redirect()->route('home');
         }
     }
 
     public function destroy(Snippet $snippet)
     {
-        if(!Auth::user()->authorization($snippet->contributor)){
-            return redirect()->route('home');
-        }else{
+        if($this->authorize('destroy', $snippet)){
             $snippet->stars->each->delete();//delete star
             $snippet->komentar->each->delete();//delete komentar
             $snippet->tags->each->delete();//delete tag
             $snippet->delete();
             return redirect()->back();
+        }else{
+            return redirect()->route('home');
         }
     }
 

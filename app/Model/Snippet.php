@@ -27,7 +27,7 @@ class Snippet extends Model
     public function checkContributorStarExist($contributor_id)
     {
         //if empty return true
-        return ($this->star()->where('contributor_id',$contributor_id)->count())?true:false;
+        return ($this->stars()->where('contributor_id',$contributor_id)->count())?true:false;
     }
     
     public function counterView(){

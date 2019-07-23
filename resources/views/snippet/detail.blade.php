@@ -12,6 +12,7 @@
         <div class="col-md-8 snippet">
           <div class="snippet-content">
               <div class="row snippet-header">
+                  
                   <div class="round-image"> 
                     <img src="{{ $snippet->contributor->avatar }}" alt=""> 
                   </div>
@@ -46,13 +47,15 @@
                   <div class="pull-right">
                     <i class="fa fa-eye"></i> {{ $snippet->view }}
                     {{-- <i class="fa fa-copy"></i> {{ $snippet->copied }} --}}
-                    @if(Auth::user() && Auth::user()->id != $snippet->contributor_id && !$snippet->checkContributorStarExist(Auth::user()->id))
+                    
+                    @can('star',$snippet)
                       <a href="#" onclick="star()" class="action-star" style="margin-left:5px">
                         <i class="fa fa-star-o"></i>
                       </a>
                     @else
                       <i class="fa fa-star" style="color:yellow"></i> 
-                    @endif
+                    @endcan
+
                     {{ $snippet->star }}
                   </div>
 
@@ -79,11 +82,13 @@
                 @php($no = 0)
                 @foreach($snippet->komentar as $komentar)
                   <div class="komentar clearfix {{ ($no++%2==1)?'odd':'' }}">
-                    @if(Auth::user()->id==$komentar->contributor_id)
+                    
+                    @can('destroy',$komentar)
                       <a href="#" onclick="hapus('{{ route('komentar.destroy',['snippet'=>$snippet->id,'komentar'=>$komentar->id]) }}')" class="btn btn-round btn-small btn-danger btn-delete" href="">
                         <i class="fa fa-trash"></i>
                       </a>
-                    @endif
+                    @endcan
+
                     <div> 
                       <img src="{{ $komentar->contributor->avatar }}" alt=""> 
                     </div>
@@ -158,7 +163,7 @@
 <script>
 hljs.initHighlightingOnLoad();
 
-@if(Auth::user() && Auth::user()->id != $snippet->contributor_id)
+@can('star',$snippet)
   function star()
   {
     $.post("{{ route('snippet.star',['snippet'=>$snippet->id]) }}",{
@@ -168,6 +173,6 @@ hljs.initHighlightingOnLoad();
       window.location.href = "{{ route('snippet.detail',['contributor'=>$snippet->contributor_id,'snippet'=>$snippet->id]) }}";
     });
   }
-@endif
+@endcan
 </script> 
 @endsection
