@@ -80,7 +80,10 @@ class SnippetController extends Controller
             }
             $notExists = $snippet->tags()->whereNotIn('tag_id',$currentTag)->get(); //check old tag not exist
             $notExists->each->delete(); //deleting all not exist tag
-            return redirect()->back();
+            return redirect()->route('snippet.detail',[
+                'contributor'=>$snippet->contributor_id,
+                'snippet'=>$snippet->id
+            ]);
         }else{
             return redirect()->route('home');
         }
