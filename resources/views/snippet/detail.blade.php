@@ -13,6 +13,22 @@
           <div class="snippet-content">
               <div class="row snippet-header">
                   
+                <div class="snippet-action">
+                
+                      @can('destroy', $snippet)
+                          <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
+                              <i class="fa fa-trash"></i>
+                          </a>
+                      @endcan
+                      
+                      @can('update', $snippet)
+                          <a href="{{ route('snippet.edit',['snippet'=>$snippet->id]) }}" class="btn btn-round btn-small btn-success">
+                              <i class="fa fa-pencil"></i>
+                          </a>
+                      @endcan
+
+                  </div>
+
                   <div class="round-image"> 
                     <img src="{{ $snippet->contributor->avatar }}" alt=""> 
                   </div>
