@@ -26,6 +26,8 @@ class UserController extends Controller
 
         return view('snippet.user',[
             'title'=>'RO-Snippet: '.$contributor->name,
+            'description'=>$contributor->name.' adalah salah satu contributor di RO-Snippet, membuat tips dan trick mengenai pemrograman, mulai dari Laravel, NodeJs, Go, Angular, Ruby On Rails dan lain-lain',
+            'metaTag'=>'contributor, '.$contributor->name,
             'contributor'=>$contributor,
             'snippet_r'=>$snippet->paginate(21),
             'total_view'=>$snippet->sum('view'),

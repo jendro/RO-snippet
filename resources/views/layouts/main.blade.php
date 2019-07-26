@@ -5,8 +5,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{{ $title }}</title>
-      <meta name="description" content="">
-      <meta name="author" content="">
+      <meta name="description" content="{{ $description??'Tips & Tricks about programming, Laravel, Angular, NodeJs, Go, Ruby on Rails' }}">
+      <meta name="keywords" content="{{ $metaTag??'Tips,Tricks,Programming,Laravel,NodeJs,Angular,Go,RubyOnRails' }}">
+      <meta name="author" content="{{ Auth::user()?Auth::user()->name:'Administrator' }}">
 
       <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
       

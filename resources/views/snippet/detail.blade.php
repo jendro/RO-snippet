@@ -41,15 +41,17 @@
                     <h3 class="snippet-title">
                         {{ $snippet->title }}
                     </h3>
+                    @php($metaTag = $snippet->framework->framework)
                     <span class="snippet-timeago">{{ $snippet->created_at->diffForHumans() }}, in :</span>
                     <span class="snippet-tag {{ $snippet->framework->class }}">
                         <a class="framework-icon" title="laravel" href="{{ route('snippet.framework',['framewkro'=>$snippet->framework_id]) }}">
                             <img src="{{ asset($snippet->framework->icon) }}" alt="">
                             {{ $snippet->framework->framework }}
-                        </a>
-                    </span>
-
+                          </a>
+                        </span>
+                        
                     @foreach($snippet->tags as $tag)
+                        @php($metaTag .= ", ".$tag->tag->tag)
                         <span class="snippet-tag"><a href="{{ route('snippet.tag',['tag'=>$tag->tag->id]) }}">{{ $tag->tag->tag }}</a></span>
                     @endforeach
                     
@@ -79,7 +81,9 @@
 
               <div class="row snippet-description">
                 <h4>Description</h4>
-                <p class="detail">{{ $snippet->description }}</p>
+                <main>
+                  <p class="detail">{{ $description = $snippet->description }}</p>
+                </main>
               </div>
 
               <div class="row snippet-description">
