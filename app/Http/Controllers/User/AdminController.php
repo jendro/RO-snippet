@@ -15,6 +15,7 @@ class AdminController extends Controller
         $snippet = $user->snippet(21);
         return view('user.admin',[
             'user'=>$user,
+            'title'=>'Admin Page: '.$user->name,
             'total_view'=>$snippet->sum('view'),
             'total_star'=>$snippet->sum('star')
         ]);
@@ -23,6 +24,7 @@ class AdminController extends Controller
     public function edit(Request $request)
     {
         return view('user.form-profil',[
+            'title'=>'Edit Contributor: '.Auth::user()->name,
             'user'=>Auth::user()
         ]);
     }

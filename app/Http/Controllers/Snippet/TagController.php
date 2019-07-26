@@ -14,6 +14,7 @@ class TagController extends Controller
     public function __invoke(Request $request,Tag $tag)
     {
         return view('snippet.tag',[
+            'title'=>'Snippet in: '.$tag->tag,
             'tag'=>$tag->tag,
             'snippettags'=>$tag
                 ->snippetTags()

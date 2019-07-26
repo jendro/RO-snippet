@@ -13,6 +13,7 @@ class FrameworkController extends Controller
     public function __invoke(Request $request,Framework $framework)
     {
         return view('snippet.framework',[
+            'title'=>'Snippet in Framework: '.$framework->framework,
             'framework'=>$framework->framework,
             'snippet_r'=>
                 $framework->snippet()

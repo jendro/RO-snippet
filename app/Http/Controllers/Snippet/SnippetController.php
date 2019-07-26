@@ -21,6 +21,7 @@ class SnippetController extends Controller
     public function index()
     {
         return view('snippet.home',[
+            'title'=>'RO-Snippet, Tips & Trick Seputar Programming',
             'snippet_r'=>Snippet::with([
                 'tags.tag',
                 'framework',
@@ -34,6 +35,7 @@ class SnippetController extends Controller
         $snippet->counterView();
         return view('snippet.detail',[
             'snippet'=>$snippet,
+            'title'=>$snippet->framework->framework.": ".$snippet->title,
             'other_r'=>Snippet::where('id', '!=', $snippet->id)
                 ->where('framework_id',$snippet->framework_id)
                 ->orderBy('view')

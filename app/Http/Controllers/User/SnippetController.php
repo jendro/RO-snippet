@@ -24,6 +24,7 @@ class SnippetController extends Controller
     public function add(Request $request)
     {
         return view('user.snippet.form',[
+            'title'=>'Add Snippet',
             'framework_r'=>Framework::orderBy('framework')->get()
         ]);
     }
@@ -51,6 +52,7 @@ class SnippetController extends Controller
     {
         if($this->authorize('update', $snippet)){
             return view('user.snippet.form-edit',[
+                'title'=>'Edit Snippet: '.$snippet->title,
                 'snippet'=>$snippet,
                 'framework_r'=>Framework::orderBy('framework')->get()
             ]);

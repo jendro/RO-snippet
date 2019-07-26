@@ -25,6 +25,7 @@ class UserController extends Controller
             ]);
 
         return view('snippet.user',[
+            'title'=>'RO-Snippet: '.$contributor->name,
             'contributor'=>$contributor,
             'snippet_r'=>$snippet->paginate(21),
             'total_view'=>$snippet->sum('view'),

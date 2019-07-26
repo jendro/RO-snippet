@@ -4,7 +4,7 @@
       
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>RO-SNIPPET</title>
+      <title>{{ $title }}</title>
       <meta name="description" content="">
       <meta name="author" content="">
 

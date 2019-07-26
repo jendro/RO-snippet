@@ -20,6 +20,7 @@ class SearchController extends Controller
         $query = $request->q;
         return view('snippet.search',[
             'q'=>$query,
+            'title'=>'Snippet in: '.$query,
             'snippet_r'=>Snippet::with([
                     'tags.tag',
                     'framework',
