@@ -31,6 +31,10 @@ class AdminController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate($request, [
+            'nickname' => 'required',
+            'name' => "required",
+        ]);
         Auth::user()->update($request->only(
             'nickname',
             'name',

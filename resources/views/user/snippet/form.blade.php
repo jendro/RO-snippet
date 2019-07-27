@@ -13,7 +13,7 @@
             <a href="{{ route('user.admin',['user'=>Auth::user()->id]) }}">Snippet</a> <i class="fa fa-angle-right"></i> 
             Tambah Snippet
           </h4>
-
+          
           <form method="POST" class="form-horizontal" action="{{ route('snippet.create') }}">
             @csrf
             <div class="form-group">
@@ -27,11 +27,17 @@
                 </select>
               </div>
             </div>
-
+            
             <div class="form-group">
               <label class="control-label col-sm-2" for="title">Title:</label>
               <div class="col-sm-9"> 
-                <input autocomplete="off" required type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
+                <input autocomplete="off" required type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}">
+                @error('title')
+                  <div class="alert alert-danger mgt5">
+                    {{ $message }}
+                  </div>
+                @enderror
+
               </div>
             </div>
             

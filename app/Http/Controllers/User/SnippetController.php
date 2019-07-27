@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 
 use App\Model\Framework;
@@ -21,6 +22,19 @@ class SnippetController extends Controller
         $this->middleware('auth');
     }
 
+    private function validation($request,$snippet_id = 0){
+        $this->validate($request, [
+            'framework_id' => 'required',
+            'title' => Rule::unique('snippet','title')
+                ->ignore($snippet_id)
+                ->where(function ($query) use ($request){
+                    return $query->where('framework_id', $request->framework_id);
+                }),
+            'description' => 'required',
+            'code' => 'required',
+        ]);
+    }
+
     public function add(Request $request)
     {
         return view('user.snippet.form',[
@@ -31,6 +45,7 @@ class SnippetController extends Controller
 
     public function create(Request $request)
     {
+        $this->validation($request);
         $snippet = Snippet::create($request->all());
         if($snippet){
             $tags = array_filter(explode(",",$request->tag));
@@ -64,6 +79,7 @@ class SnippetController extends Controller
     public function update(Request $request, Snippet $snippet)
     {
         if($this->authorize('update', $snippet)){
+            $this->validation($request,$snippet->id);
             $snippet->update(
                 $request->only(
                     'framework_id',

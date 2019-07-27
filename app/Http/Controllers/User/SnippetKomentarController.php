@@ -21,6 +21,9 @@ class SnippetKomentarController extends Controller
 
     public function create(Request $request)
     {
+         $this->validate($request, [
+            'komentar' => 'required',
+        ]);
         $data = SnippetKomentar::create($request->all());
         if($data){
             return redirect()->route('snippet.detail',[

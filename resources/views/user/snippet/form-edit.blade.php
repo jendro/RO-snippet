@@ -15,6 +15,8 @@
               Edit Snippet
             </h4>
 
+            
+
             <form method="POST" class="form-horizontal" action="{{ route('snippet.update',['route'=>$snippet->id]) }}">
               @method("PUT")
               @csrf
@@ -33,7 +35,12 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="title">Title:</label>
                 <div class="col-sm-9"> 
-                  <input autocomplete="off" required type="text" class="form-control" id="title" name="title" value="{{ $snippet->title }}">
+                  <input autocomplete="off" required type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ $snippet->title }}">
+                  @error('title')
+                    <div class="alert alert-danger mgt5">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
               </div>
               

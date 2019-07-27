@@ -405,6 +405,11 @@ p.login-warning {
     padding-bottom: 20px;
 }
 
+
+.mgt5{
+    margin-top:5px;
+}
+
 .mgr10{
     margin-right:10px
 }
@@ -428,4 +433,9 @@ p.login-warning {
 .swal2-modal {
     font-size: 2em;
     padding: 20px !important;
+}
+
+input.is-invalid{
+    border:1px solid red;
+    box-shadow:0 0 1px 1px red!important;
 }

@@ -68,4 +68,8 @@ $(document).ready(function(){
     horizontalOrder: true,
   });
 
+  $(".is-invalid").keyup(function () {
+    $(this).removeClass('is-invalid');
+  })
+
 });
