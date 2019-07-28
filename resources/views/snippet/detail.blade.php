@@ -16,13 +16,13 @@
                 <div class="snippet-action">
                 
                       @can('destroy', $snippet)
-                          <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
+                          <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->slug]) }}')" class="btn btn-round btn-small btn-danger">
                               <i class="fa fa-trash"></i>
                           </a>
                       @endcan
                       
                       @can('update', $snippet)
-                          <a href="{{ route('snippet.edit',['snippet'=>$snippet->id]) }}" class="btn btn-round btn-small btn-success">
+                          <a href="{{ route('snippet.edit',['snippet'=>$snippet->slug]) }}" class="btn btn-round btn-small btn-success">
                               <i class="fa fa-pencil"></i>
                           </a>
                       @endcan
@@ -158,12 +158,12 @@
                   </div>
                   <div>
                     <p class="snippet-user">
-                        <a href="{{ route('snippet.user',['contributor'=>$other->contributor->id]) }}">
+                        <a href="{{ route('snippet.user',['contributor'=>$other->contributor->login]) }}">
                         {{ $other->contributor->name }}
                         </a>
                     </p>
                     <h3 class="snippet-title">
-                        <a href="{{ route('snippet.detail',['contributor'=>$other->contributor->id,'snippet'=>$other->id]) }}">
+                        <a href="{{ route('snippet.detail',['framework'=>$other->framework->slug,'snippet'=>$other->slug]) }}">
                             {{ $other->title }}
                         </a>
                     </h3>

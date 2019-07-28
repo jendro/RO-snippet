@@ -10,8 +10,13 @@ class Snippet extends Model
     protected $table = 'snippet';
 
     protected $fillable = [
-        'contributor_id', 'framework_id', 'title', 'description', 'code'
+        'contributor_id', 'framework_id', 'title', 'slug', 'description', 'code'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }  
 
     protected static function boot()
     {
@@ -19,6 +24,10 @@ class Snippet extends Model
 
         static::creating(function($query){
             $query->contributor_id = auth()->user()->id;
+        });
+
+        static::saving(function($query){
+            $query->slug = str_slug($query->title,'-');
         });
     }
 

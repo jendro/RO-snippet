@@ -11,7 +11,7 @@
                 </a>
             </p>
             <h3 class="snippet-title">
-                <a href="{{ route('snippet.detail',['user'=>$snippet->contributor->login,'snippet'=>$snippet->id]) }}">
+                <a href="{{ route('snippet.detail',['user'=>$snippet->framework->slug,'snippet'=>$snippet->slug]) }}">
                     {{ $snippet->title }}
                 </a>
             </h3>

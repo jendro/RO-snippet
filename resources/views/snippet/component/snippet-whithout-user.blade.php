@@ -6,7 +6,7 @@
                 {{ $snippet->contributor->name }}
             </p>
             <h3 class="snippet-title">
-                <a href="{{ route('snippet.detail',['user'=>$snippet->contributor_id,'snippet'=>$snippet->id]) }}">
+                <a href="{{ route('snippet.detail',['user'=>$snippet->framework->slug,'snippet'=>$snippet->slug]) }}">
                     {{ $snippet->title }}
                 </a>
             </h3>

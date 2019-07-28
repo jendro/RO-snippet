@@ -30,7 +30,7 @@ class SnippetController extends Controller
         ]);
     }
     
-    public function detail(Contributor $contributor,Snippet $snippet)
+    public function detail($framework,Snippet $snippet)
     {
         $snippet->counterView();
         return view('snippet.detail',[

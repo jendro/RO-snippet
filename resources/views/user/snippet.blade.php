@@ -6,8 +6,8 @@
             </p>
             <h3 class="snippet-title">
                 <a href="{{ route('snippet.detail',[
-                    'contributor'=>$snippet->contributor->id,
-                    'snippet'=>$snippet->id
+                    'contributor'=>$snippet->framework->slug,
+                    'snippet'=>$snippet->slug
                     ]) }}">
                     {{ $snippet->title }}
                 </a>
@@ -15,13 +15,13 @@
             <div class="snippet-action">
                 
                 @can('destroy', $snippet)
-                    <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->id]) }}')" class="btn btn-round btn-small btn-danger">
+                    <a href="#" onclick="hapus('{{ route('snippet.destroy',['snippet'=>$snippet->slug]) }}')" class="btn btn-round btn-small btn-danger">
                         <i class="fa fa-trash"></i>
                     </a>
                 @endcan
                 
                 @can('update', $snippet)
-                    <a href="{{ route('snippet.edit',['snippet'=>$snippet->id]) }}" class="btn btn-round btn-small btn-success">
+                    <a href="{{ route('snippet.edit',['snippet'=>$snippet->slug]) }}" class="btn btn-round btn-small btn-success">
                         <i class="fa fa-pencil"></i>
                     </a>
                 @endcan
