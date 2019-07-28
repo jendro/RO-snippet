@@ -10,8 +10,22 @@ class Tag extends Model
     protected $table = 'tag';
 
     protected $fillable = [
-        'tag'
+        'tag', 'slug'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function($query){
+            $query->slug = str_slug($query->tag,'-');
+        });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }   
 
      /** Relation */
 
