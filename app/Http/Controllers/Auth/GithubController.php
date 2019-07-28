@@ -40,6 +40,7 @@ class GithubController extends Controller
                 'nickname'=>$user->nickname,
                 'name'=>$user->name,
                 'avatar'=>$user->avatar,
+                'login'=>$user->user['login'],
                 'url_api'=>$user->user['url'],
                 'url_html'=>$user->user['html_url'],
                 'company'=>$user->user['company'],
