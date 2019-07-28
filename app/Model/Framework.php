@@ -9,6 +9,11 @@ class Framework extends Model
     
     protected $table = 'framework';
     
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }  
+
     /** Relation */
 
     public function snippet()

@@ -16,7 +16,7 @@
             <p>{{ $snippet->description }}</p>
             <span class="snippet-timeago">{{ $snippet->created_at->diffForHumans() }} in :</span>
             <span class="snippet-tag {{ $snippet->framework->class }}">
-                <a class="framework-icon" title="{{ $snippet->framework->framework }}" href="{{ route('snippet.framework',['framewkro'=>$snippet->framework_id]) }}">
+                <a class="framework-icon" title="{{ $snippet->framework->framework }}" href="{{ route('snippet.framework',['framework'=>$snippet->framework->slug]) }}">
                     <img src="{{ asset($snippet->framework->icon) }}" alt="">
                     {{ $snippet->framework->framework }}
                 </a>
