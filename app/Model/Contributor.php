@@ -14,7 +14,11 @@ class Contributor extends Authenticatable
     protected $fillable = [
         'id', 'nickname', 'name', 'email', 'login', 'company',	'blog',	'location',	'bio', 'avatar', 'url_api', 'url_html'
     ];
-    
+
+    public function getRouteKeyName()
+    {
+        return 'login';
+    }    
 
     /** action */
     public function updateAvatar($avatar)

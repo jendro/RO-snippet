@@ -6,12 +6,12 @@
             </div>
             <div>
             <p class="snippet-user">
-                <a href="{{ route('snippet.user',['user'=>$snippet->contributor_id]) }}">
+                <a href="{{ route('snippet.user',['user'=>$snippet->contributor->login]) }}">
                     {{ $snippet->contributor->name }}
                 </a>
             </p>
             <h3 class="snippet-title">
-                <a href="{{ route('snippet.detail',['user'=>$snippet->contributor_id,'snippet'=>$snippet->id]) }}">
+                <a href="{{ route('snippet.detail',['user'=>$snippet->contributor->login,'snippet'=>$snippet->id]) }}">
                     {{ $snippet->title }}
                 </a>
             </h3>
