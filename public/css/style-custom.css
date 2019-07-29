@@ -389,15 +389,6 @@ p.login-warning {
     border-radius: 50%;
 }
 
-.framework-icon img {
-    height: 13px;
-}
-
-.tag-laravel{
-    margin-right:5px
-}
-
-
 .pb10{
     padding-bottom: 10px;
 }
@@ -438,4 +429,18 @@ p.login-warning {
 input.is-invalid{
     border:1px solid red;
     box-shadow:0 0 1px 1px red!important;
+}
+
+
+
+
+
+/** FRMAEWORK TAG COLOR */
+
+.framework-icon img {
+    height: 13px;
+}
+
+.tag-laravel {
+    margin-right: 5px
 }

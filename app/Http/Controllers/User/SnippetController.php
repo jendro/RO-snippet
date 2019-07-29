@@ -54,8 +54,8 @@ class SnippetController extends Controller
                 $snippet->tags()->create(['tag_id'=>$data_tag->id]);
             }
             return redirect()->route('snippet.detail',[
-                'contributor'=>$snippet->contributor_id,
-                'snippet'=>$snippet->id
+                'framework'=>$snippet->framework->slug,
+                'snippet'=>$snippet->slug
             ]);
 
         }else{
@@ -99,8 +99,8 @@ class SnippetController extends Controller
             $notExists = $snippet->tags()->whereNotIn('tag_id',$currentTag)->get(); //check old tag not exist
             $notExists->each->delete(); //deleting all not exist tag
             return redirect()->route('snippet.detail',[
-                'contributor'=>$snippet->contributor_id,
-                'snippet'=>$snippet->id
+                'framework'=>$snippet->framework->slug,
+                'snippet'=>$snippet->slug
             ]);
         }else{
             return redirect()->route('home');
