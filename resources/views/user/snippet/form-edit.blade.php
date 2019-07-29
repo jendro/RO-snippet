@@ -17,7 +17,7 @@
 
             
 
-            <form method="POST" class="form-horizontal" action="{{ route('snippet.update',['route'=>$snippet->id]) }}">
+            <form method="POST" class="form-horizontal" action="{{ route('snippet.update',['route'=>$snippet->slug]) }}">
               @method("PUT")
               @csrf
               <div class="form-group">

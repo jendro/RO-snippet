@@ -43,7 +43,7 @@
                     </h3>
                     @php($metaTag = $snippet->framework->framework)
                     <span class="snippet-timeago">{{ $snippet->created_at->diffForHumans() }}, in :</span>
-                    <span class="snippet-tag {{ $snippet->framework->class }}">
+                    <span class="snippet-tag tag-framework {{ $snippet->framework->class }}">
                       <a class="framework-icon" title="laravel" href="{{ route('snippet.framework',['framework'=>$snippet->framework->slug]) }}">
                           <img src="{{ asset($snippet->framework->icon) }}" alt="">
                           {{ $snippet->framework->framework }}

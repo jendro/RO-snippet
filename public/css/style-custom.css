@@ -441,6 +441,22 @@ input.is-invalid{
     height: 13px;
 }
 
-.tag-laravel {
+.tag-framework {
     margin-right: 5px
+}
+
+.tag-angular img{
+    margin-top:-1px;
+}
+
+.tag-go img {
+    width: 25px;
+    margin-top:-2px;
+    margin-left:-2px;
+}
+
+.tag-git img {
+    height: 11px;
+    margin-top:-1px;
+    margin-left:-2px;
 }
